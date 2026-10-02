@@ -902,37 +902,50 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .nav__cta { display: none; }
   .nav__hamburger { display: flex; }
 
-  /* Hero mobile — coluna única, imagem no topo */
+  /* Hero mobile — layout em flex para não forçar alturas irreais em grids */
   .hero {
-    grid-template-columns: 1fr;
-    min-height: 100dvh;
-  }
-
-  .hero__left {
-    padding: 2rem 0 3rem;
-    max-width: 100%;
-    margin-left: 0;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 64px;
   }
 
   .hero__right {
-    height: 45dvh;
+    height: 40vh;
+    min-height: 250px;
     order: -1;
   }
 
   .hero__right::after {
     background: linear-gradient(
       to bottom,
-      transparent 30%,
-      var(--bg-base) 100%
+      transparent 10%,
+      var(--bg-base) 95%
     );
   }
 
-  .hero__actions { flex-direction: column; align-items: stretch; }
-  .hero__actions .btn { justify-content: center; }
+  .hero__left {
+    padding: 2rem 1.25rem 4rem;
+    max-width: 100%;
+    margin-left: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__actions { 
+    flex-direction: column; 
+    align-items: stretch; 
+    width: 100%;
+  }
+  
+  .hero__actions .btn { 
+    justify-content: center; 
+    width: 100%;
+  }
 
   /* Sobre */
-  .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about__grid { grid-template-columns: 1fr; gap: 2.5rem; }
 
   /* Serviços */
   .section-head { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
@@ -941,15 +954,21 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .svc--1, .svc--2, .svc--3, .svc--4 { grid-column: span 1; }
 
   /* Processo */
-  .process__layout { grid-template-columns: 1fr; gap: 3rem; }
+  .process__layout { grid-template-columns: 1fr; gap: 2.5rem; }
 
   /* Contato */
-  .contact__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact__grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .form-row { grid-template-columns: 1fr; }
 
   /* Rodapé */
-  .footer__inner { flex-direction: column; text-align: center; gap: 0.75rem; }
-  .footer__links { justify-content: center; }
+  .footer__inner { flex-direction: column; text-align: center; gap: 1rem; }
+  .footer__links { flex-direction: column; gap: 0.75rem; justify-content: center; }
+}
+
+@media (max-width: 400px) {
+  .hero__headline {
+    font-size: 1.875rem; /* ~30px para telas bem pequenas como 360px */
+  }
 }
 
 /* =============================================================================
