@@ -31,8 +31,8 @@ export function Navbar() {
               height: 38px cabe bem na nav de 64px de altura.
           */}
             <img
-              src="/fullcycle-development.svg"
-              alt="FullCycle Development"
+              src="/fullcycle-navbar.svg"
+              alt="FullCycle"
               className="nav__logo-img"
               height="38"
               width="auto"

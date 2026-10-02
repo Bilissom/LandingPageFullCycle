@@ -1,31 +1,31 @@
 /* =============================================================================
    DESIGN TOKENS — FullCycle Development
-   Paleta: azul-petróleo escuro, marfim, verde-azulado, cobre discreto
+   Paleta: azul-petróleo escuro, marfim, azul de destaque
    ============================================================================= */
 :root {
   /* ── Fundos ──────────────────────────────────────────────── */
-  --bg-base:     #14242A;   /* azul-petróleo escuro — fundo principal   */
-  --bg-surface:  #1E3036;   /* seções alternadas, superfícies           */
-  --bg-elevated: #253840;   /* inputs, painéis elevados                 */
+  --bg-base:     #101A2A;   /* azul escuro — fundo principal            */
+  --bg-surface:  #17253A;   /* seções alternadas, superfícies           */
+  --bg-elevated: #1D2E47;   /* inputs, painéis elevados                 */
 
-  /* ── Acento principal: verde-azulado suave ───────────────── */
-  --accent:       #789B91;              /* destaques e interações          */
-  --accent-dim:   #5C7A70;              /* variante mais escura             */
-  --accent-light: rgba(120,155,145,0.15); /* fundos de badge / tag          */
-  --accent-border: rgba(120,155,145,0.30); /* bordas de destaque             */
+  /* ── Acento principal: azul ──────────────────────────────── */
+  --accent:       #3D8CF5;              /* destaques e interações          */
+  --accent-hover: #65A9DA;              /* azul mais claro para hover      */
+  --accent-light: rgba(61, 140, 245, 0.15); /* fundos de badge / tag       */
+  --accent-border: rgba(61, 140, 245, 0.30); /* bordas de destaque         */
 
-  /* ── Detalhe pontual: cobre discreto ───────────────────── */
-  --copper:       #B9855A;              /* linhas, etiquetas, ícones únicos */
-  --copper-light: rgba(185,133,90,0.15);
+  /* ── Detalhe pontual ── */
+  --copper:       #3D8CF5;              /* usando azul sólido para unificação */
+  --copper-light: rgba(61, 140, 245, 0.15);
 
   /* ── Texto ──────────────────────────────────────────────── */
-  --text-primary:   #F3F0E8;  /* marfim suave — títulos e destaque        */
-  --text-secondary: #B5C0BD;  /* cinza-esverdeado — corpo e subtítulos    */
-  --text-muted:     #6B7F7C;  /* texto terciário, placeholders            */
+  --text-primary:   #F4F2ED;  /* marfim suave — títulos e destaque        */
+  --text-secondary: #AAB5C3;  /* cinza-azulado — corpo e subtítulos       */
+  --text-muted:     #7C8A9C;  /* texto terciário, placeholders            */
 
   /* ── Bordas ─────────────────────────────────────────────── */
-  --border:        rgba(181,192,189,0.12);  /* divisórias e bordas gerais   */
-  --border-strong: rgba(181,192,189,0.22);  /* bordas de campos em foco     */
+  --border:        #2A394E;   /* bordas discretas                         */
+  --border-strong: #33455E;   /* bordas com leve destaque                 */
 
   /* ── Tipografia ─────────────────────────────────────────── */
   --font-sans: 'Geist', 'Outfit', system-ui, sans-serif;
@@ -175,26 +175,42 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .btn-primary:hover { background: #fff; }
+  .btn-primary:hover { 
+    background: #fff; 
+    color: var(--bg-base);
+  }
 }
 
 /* Secundário — contorno */
 .btn-outline {
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   border: 1px solid var(--border-strong);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-outline:hover {
     color: var(--text-primary);
-    border-color: var(--accent);
+    border-color: var(--accent-hover);
+    background: rgba(61, 137, 201, 0.1);
+  }
+}
+
+/* Botões menores (ex: accent) */
+.btn-accent {
+  background: var(--accent);
+  color: var(--text-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-accent:hover { 
+    background: var(--accent-hover);
   }
 }
 
 /* =============================================================================
    NAVEGAÇÃO
-   Barra fixa com fundo petróleo sólido, sem pill flutuante
+   Barra fixa com fundo petróleo sólido
    ============================================================================= */
 .nav-wrap {
   position: fixed;
@@ -226,42 +242,17 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 0 2rem;
 }
 
-/* Logo — espaço reservado para imagem ou texto */
+/* Logo — imagem SVG servida de /public */
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
   flex-shrink: 0;
 }
 
 .nav__logo-img {
-  height: 32px;
+  height: 38px;
   width: auto;
   display: block;
-}
-
-/* Logo — imagem SVG servida de /public */
-.nav__logo-img {
-  height: 36px;
-  width: auto;
-  display: block;
-  /* SVG tem fundo transparente; funciona sobre qualquer cor de nav */
-}
-
-/* Fallback textual (usado quando não há logo) */
-.nav__logo-text {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.nav__logo-text em {
-  font-style: normal;
-  color: var(--accent);
 }
 
 .nav__links {
@@ -279,7 +270,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .nav__links a:hover { color: var(--text-primary); }
+  .nav__links a:hover { color: var(--accent-hover); }
 }
 
 .nav__cta {
@@ -338,7 +329,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .nav__overlay a:hover { color: var(--text-primary); }
+  .nav__overlay a:hover { color: var(--accent-hover); }
 }
 
 /* =============================================================================
@@ -360,7 +351,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   margin-left: auto;
 }
 
-/* Rótulo de seção — traço de cobre + texto monoespaçado */
+/* Rótulo de seção */
 .hero__tag {
   display: inline-flex;
   align-items: center;
@@ -449,7 +440,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: start;
 }
 
-/* Rótulos de seção — cobre como detalhe pontual */
+/* Rótulos de seção */
 .section-label {
   display: inline-flex;
   align-items: center;
@@ -607,7 +598,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   flex: 1;
 }
 
-/* Tag de serviço — verde-azulado como acento */
+/* Tag de serviço */
 .svc__tag {
   align-self: flex-start;
   font-family: var(--font-mono);
@@ -671,7 +662,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   letter-spacing: 0.06em;
-  color: var(--accent);          /* verde-azulado nos números das etapas */
+  color: var(--accent);          /* azul nos números das etapas */
   padding-top: 0.125rem;
   font-weight: 500;
 }
@@ -804,7 +795,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .form-field textarea:focus,
 .form-field select:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(120, 155, 145, 0.12);
+  box-shadow: 0 0 0 3px rgba(61, 137, 201, 0.12);
 }
 
 .form-field textarea {

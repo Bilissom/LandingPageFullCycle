@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 68" role="img" aria-labelledby="title desc">
+  <title id="title">FullCycle</title>
+  <desc id="desc">Símbolo de ciclo em ciano, azul e roxo ao lado do nome FullCycle.</desc>
+  <defs>
+    <linearGradient id="cycle-mark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00D7F2"/>
+      <stop offset="52%" stop-color="#087CFA"/>
+      <stop offset="100%" stop-color="#B948F5"/>
+    </linearGradient>
+    <linearGradient id="cycle-word" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00CBEA"/>
+      <stop offset="54%" stop-color="#3974FF"/>
+      <stop offset="100%" stop-color="#B649F4"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(3 3)">
+    <path d="M7 30 C7 16 22 14 34 30 C46 46 61 44 61 30 C61 16 46 14 34 30 C22 46 7 44 7 30"
+          fill="none" stroke="url(#cycle-mark)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="1" y="46" width="6" height="6" fill="#00D7F2"/>
+    <rect x="9" y="53" width="6" height="6" fill="#08BDF2"/>
+    <rect x="60" y="4" width="6" height="6" fill="#B948F5"/>
+    <rect x="67" y="11" width="5" height="5" fill="#914CF5"/>
+  </g>
+  <text x="84" y="47" font-family="Inter, Montserrat, Arial, sans-serif" font-size="39" font-weight="700" letter-spacing="-1.6">
+    <tspan fill="#FFFFFF">Full</tspan><tspan fill="url(#cycle-word)">Cycle</tspan>
+  </text>
+</svg>

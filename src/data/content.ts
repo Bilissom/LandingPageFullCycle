@@ -124,9 +124,9 @@ export const CONTACT = {
   title: 'Vamos conversar sobre seu projeto',
   subtitle: 'Conte como podemos ajudar. Não cobramos para entender o que você precisa antes de qualquer proposta.',
   form_note: 'Responderemos em até 1 dia útil.',
-  // TODO: ativar quando os links estiverem disponíveis:
+  // TODO: Informe o e-mail real e o WhatsApp quando disponíveis:
+  email: 'mailto:contato@fullcycle.dev',
   // whatsapp: 'https://wa.me/55XXXXXXXXXXX',
-  // email: 'mailto:contato@fullcycle.dev',
 }
 
 // -----------------------------------------------------------------------
